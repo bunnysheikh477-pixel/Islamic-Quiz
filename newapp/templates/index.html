@@ -1,0 +1,38 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Islamic Quote Generator</title>
+    <link rel="stylesheet" href="{% static 'style css/index.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <!-- Animated background -->
+    <div class="background"></div>
+
+    <div class="quote-wrapper">
+        <h1>Islamic Inspirations</h1>
+        <p class="tagline">Make Your Iman Stronger</p>
+
+        <div class="quote-card">
+            {% for item in quote %}
+            <p class="quote">
+                "{{item}}"
+            </p>
+            {% endfor %}
+
+
+        </div>
+        <form action="/list/" method="post">
+            {% csrf_token %}
+          <button class="quote-btn">
+            New Quote
+          </button>
+        </form>
+
+    </div>
+
+</body>
+</html>
